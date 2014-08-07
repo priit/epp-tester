@@ -1,0 +1,7 @@
+= form_tag('/epp_test') do
+  = text_area_tag(:payload, params[:payload], style: 'width: 500px; height: 300px;')
+  %br
+  = button_tag 'EPP Request'
+  %hr
+
+= CodeRay.scan(@result, :xml).div(:line_numbers => :table).html_safe
