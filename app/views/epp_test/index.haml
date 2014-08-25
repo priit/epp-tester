@@ -1,7 +1,41 @@
-= form_tag('/epp_test') do
-  = text_area_tag(:payload, params[:payload], style: 'width: 500px; height: 300px;')
-  %br
-  = button_tag 'EPP Request'
-  %hr
+.left
+  = form_tag('/epp_test') do
+    = text_area_tag(:payload, params[:payload], style: 'width: 700px; height: 300px;')
+    %br
+    = button_tag 'EPP Request'
+.left{style: 'width: 500px'}
+  %h4 Domain
+  %a.js-load-xml{href: 'javascript:void(0)', data: {obj: 'domain', epp_action: 'create'}}
+    Create
+  ,
+  %a.js-load-xml{href: 'javascript:void(0)', data: {obj: 'domain', epp_action: 'create_detailed'}}
+    Create (detailed)
+  ,
+  %a.js-load-xml{href: 'javascript:void(0)', data: {obj: 'domain', epp_action: 'update'}}
+    Update
+  ,
+  %a.js-load-xml{href: 'javascript:void(0)', data: {obj: 'domain', epp_action: 'update_add'}}
+    Update (add)
+  ,
+  %a.js-load-xml{href: 'javascript:void(0)', data: {obj: 'domain', epp_action: 'update_remove'}}
+    Update (remove)
+  ,
+  %a.js-load-xml{href: 'javascript:void(0)', data: {obj: 'domain', epp_action: 'update_all'}}
+    Update (all)
+  ,
+  %a.js-load-xml{href: 'javascript:void(0)', data: {obj: 'domain', epp_action: 'info'}}
+    Info
+  ,
+  %a.js-load-xml{href: 'javascript:void(0)', data: {obj: 'domain', epp_action: 'renew'}}
+    Renew
+  ,
+  %a.js-load-xml{href: 'javascript:void(0)', data: {obj: 'domain', epp_action: 'check'}}
+    Check
 
-= CodeRay.scan(@result, :xml).div(:line_numbers => :table).html_safe
+  %h4 Contact
+  %a.js-load-xml{href: 'javascript:void(0)', data: {obj: 'contact', epp_action: 'create'}}
+    Create
+
+.clear
+  %hr
+  = CodeRay.scan(@result, :xml).div(:line_numbers => :table).html_safe
