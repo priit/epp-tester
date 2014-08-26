@@ -3,7 +3,11 @@ class EppTestController < ApplicationController
 
   def create
     server = Epp::Server.new({server: 'localhost', tag: 'gitlab', password: 'ghyt9e4fu', port: 700})
-    @result = server.request(params[:payload])
+    begin
+      @result = server.request(params[:payload])
+    rescue
+      @result = 'CONNECTION ERROR - Is the EPP server running?'
+    end
     render :index
   end
 
