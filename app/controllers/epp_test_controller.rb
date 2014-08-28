@@ -2,7 +2,10 @@ class EppTestController < ApplicationController
   def index; end
 
   def create
-    server = Epp::Server.new({server: 'localhost', tag: 'gitlab', password: 'ghyt9e4fu', port: 700})
+    user, pw = 'zone', 'ghyt9e4fu' if params[:epp_request_zone]
+    user, pw = 'elkdata', '8932iods' if params[:epp_request_elkdata]
+
+    server = Epp::Server.new({server: 'localhost', tag: user, password: pw, port: 700})
     begin
       @result = server.request(params[:payload])
     rescue

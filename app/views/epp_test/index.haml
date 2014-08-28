@@ -2,7 +2,8 @@
   = form_tag('/epp_test') do
     = text_area_tag(:payload, params[:payload], style: 'width: 700px; height: 300px;')
     %br
-    = button_tag 'EPP Request'
+    = button_tag 'EPP Request as Zone', name: 'epp_request_zone'
+    = button_tag 'EPP Request as Elkdata', name: 'epp_request_elkdata'
 .left{style: 'width: 500px'}
   %h4 Domain
   %a.js-load-xml{href: 'javascript:void(0)', data: {obj: 'domain', epp_action: 'create'}}
@@ -31,6 +32,9 @@
   ,
   %a.js-load-xml{href: 'javascript:void(0)', data: {obj: 'domain', epp_action: 'check'}}
     Check
+  ,
+  %a.js-load-xml{href: 'javascript:void(0)', data: {obj: 'domain', epp_action: 'transfer'}}
+    Transfer
 
   %h4 Contact
   %a.js-load-xml{href: 'javascript:void(0)', data: {obj: 'contact', epp_action: 'create'}}
