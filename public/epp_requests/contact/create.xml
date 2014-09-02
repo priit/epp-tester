@@ -4,7 +4,7 @@
     <create>
       <contact:create xmlns:contact="urn:ietf:params:xml:ns:contact-1.0">
         <contact:id>sh8013</contact:id>
-        <contact:postalInfo>
+        <contact:postalInfo type="int">
           <contact:name>Sillius Soddus</contact:name>
           <contact:org>Example Inc.</contact:org>
           <contact:addr>
