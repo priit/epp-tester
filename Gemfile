@@ -31,6 +31,12 @@ gem 'epp', '~> 1.4.0'
 gem 'uuidtools', '~> 2.1.4'
 
 gem 'coderay'
+
+group :assets do
+  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+  gem 'therubyracer',  platforms: :ruby
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
